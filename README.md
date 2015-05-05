@@ -8,6 +8,8 @@ A simple Google App Engine Python App to create quick reviews (and allowing bulk
 * Mostly memcached
 * Secure accounts (thanks to Google)
 
+You should be able to set up your own scalable review site using this project without even knowing Python. Just follow the guide below.
+
 # Getting Started
 
 Sign up for a [Google App Engine](http://appengine.google.com) account. Create a new App (make a note of the app name you will need it shortly).
