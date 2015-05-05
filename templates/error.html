@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+{% set type=type or "danger" %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-{{type}}">
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{title}}</h3>
+                </div>
+
+                <div class="panel-body">
+                    <p>{{title}}. {{ message }} <a href="/">Return to the home page</a>.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

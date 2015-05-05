@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+                {% for cat in categories %}
+                {% if cat == category %}
+                <a class="btn btn-xs btn-default" href="/view/{{cat}}" disabled="disabled">{{cat}}</a>
+                {% else %}
+                <a class="btn btn-xs btn-default" href="/view/{{cat}}">{{cat}}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% if category %}
+            <h1>{{ category }} Reviews</h1>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% for name, collection in reviewsCollection.iteritems() %}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>{{name}}</h2>
+        <p>{{name | description}}</p>
+    </div>
+</div>
+
+<div class="row review-set well">
+    {% for review in collection %}
+    <div class="col-md-3 col-sm-6 review-item">
+        <h4 class="alt">{{review.title}}</h4>
+        {% if category %}
+        {% else %}
+        <h6>{{review.category}}</h6>
+        {% endif %}
+        <p>{{review.content}}</p>
+        <h5>{{review.rating}}</h5>
+
+        {% if admin %}
+        <a href="/write/{{review|stringify}}"> edit </a>
+        {% endif %}
+    </div>
+
+    {% endfor %}
+</div>
+{% endfor %}
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+{% include "clearfixes.html" %}
+{% endblock %}

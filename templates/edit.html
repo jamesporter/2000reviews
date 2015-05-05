@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+        <div class="well">
+            <form class="form-horizontal" action="" method="post">
+                <fieldset>
+                    <legend>Write Review</legend>
+
+                    <div class="form-group">
+                        <label for="inputName" class="col-md-2 control-label">Name</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="inputName" name="title" placeholder="Name" value="{{ title }}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review" class="col-md-2 control-label">Review</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" rows="4" id="review" name="content">{{ content }}</textarea>
+                            <span class="help-block">Please write a short review here.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review" class="col-md-2 control-label">Category</label>
+                        <div class="col-md-10">
+                        {% for category in categories %}
+                            <div class="radio">
+                                <label>
+                                    <input type="RADIO" value={{category}} name="category" id="cat-{{category}}" {% if category == savedCategory %}checked{% endif %}/>{{category}}
+                                </label>
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review" class="col-md-2 control-label">Rating</label>
+                        <div class="col-md-10">
+                            {% for rating in ratings %}
+                            <div class="radio">
+                                <label>
+                                    <input type="RADIO" value={{rating}} name="rating" id="rat-{{rating}}" {% if rating == savedRating %}checked{% endif %}/>{{rating}}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-9 col-md-3">
+                            <button class="btn btn-default btn-block">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+    </div>
+{% endblock %}

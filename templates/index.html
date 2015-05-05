@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>2000 reviews</h1>
+
+            <p>A collection of short reviews from James Porter.</p>
+
+            <p>
+                <a class="btn btn-primary btn-lg btn-info" href="/view">Browse the reviews</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Progress</h1>
+
+            <p>I have written {{numReviews}} reviews.</p>
+
+            <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: {{ percentage }}%;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="content-subtler">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Latest</h1>
+
+                <p>Here are my latest reviews.</p>
+            </div>
+        </div>
+
+        <div class="row review-set">
+            {% for review in latestReviews %}
+            <div class="col-md-3 col-sm-6 review-item">
+                <h4 class="alt">{{review.title}}</h4>
+                <h6>{{review.creationDate | datetime}}, {{review.category}}</h6>
+
+                <p>{{review.content}}</p>
+                <h6>{{review.rating}}</h6>
+
+                {% if admin %}
+                <a href="/write/{{review|stringify}}"> edit </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="inverse-content-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About</h2>
+
+                <p>I set up this little website to track the books I've read, films I've seen, music I've listened
+                    to and so on. Uses Google App Engine and Bootstrap.</p>
+
+                <h2>My other websites</h2>
+
+                <p>You can see the main website for me, <a href="http://www.complexview.com">James Porter</a>, or my
+                    Android website, <a href="http://www.amimetic.co.uk/android">Amimetic Android Apps</a>.</p>
+
+
+
+            </div>
+
+
+            <div class="col-md-6">
+                <h2>Your Own Review Site, or Blog, or...</h2>
+                <p>This project is available <a href="https://github.com/jamesporter/2000reviews">on Github</a>. In just 200 or so lines of Python
+                it has a review editing system, bulk data export, homepage, category views and secure accounts. Thanks to using App Engine it should be free
+                    or cheap to deploy (and even caches lots of stuff).</p>
+
+                <p>If you wanted to make a simple blog it would
+                be trivial to adapt this. There is little guide on the Github repo page. It is available under the MIT license so you can pretty much
+                do anything you like with it.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% include "clearfixes.html" %}
+{% endblock %}
