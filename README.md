@@ -34,6 +34,10 @@ Customise (or remove) Google Analytics. For example by deleting
 
 from base.html
 
+Then deploy. On Windows of Mac you can use the little Google App Engine Launcher App to do this for you.
+
+Note that due to caching changes may not be immediately available. You might want to manually clear out the cache to see changes immediately.
+
 # Optional
 
 The default look is boring Bootstrap default. You might want to drop in something nicer. [Bootswatch](http://bootswatch.com/) is one good/easy/free option.
