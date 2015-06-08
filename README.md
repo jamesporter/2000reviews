@@ -10,7 +10,7 @@ A simple Google App Engine Python App to create quick reviews (and allowing bulk
 
 You should be able to set up your own scalable review site using this project without even knowing Python. Just follow the guide below.
 
-My version [2000 Reviews](2000reviews.appspot.com)
+My version: [2000 Reviews](http://2000reviews.appspot.com)
 
 # Getting Started
 
